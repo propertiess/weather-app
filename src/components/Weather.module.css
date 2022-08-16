@@ -1,0 +1,26 @@
+.block {
+    background: rgba(0, 255, 234, 0.37);
+    max-width: 200px;
+    min-width: 200px;
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    /*margin: 10px 20px;*/
+}
+.date {
+    font-weight: 500;
+}
+.tempNow {
+    font-weight: 600;
+
+}
+.tempMin {
+    color: grey;
+}
+.btn {
+    background: transparent;
+    border-radius: 5px;
+    margin-bottom: 13px;
+    cursor: pointer;
+}
