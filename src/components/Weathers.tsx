@@ -1,13 +1,18 @@
-import React, {FC} from 'react';
+import React, {FC, useContext} from 'react';
 import Weather from "./Weather";
-import {useAppSelector} from "../app/hooks";
+import {useAppDispatch, useAppSelector} from "../app/hooks";
 import classes from '../stylesModule/Weathers.module.css'
 import Loader from "./Loader";
+import {fetchFiveDaysWeather} from "../features/FiveDaysWeather";
+import DetailsContext from "../context/DetailsContext";
 
 const Weathers: FC = () => {
+    const {details, setOpenDetails} = useContext(DetailsContext)
 
     const fiveDaysData = useAppSelector(state => state.fiveDaysWeather)
     const currentData = useAppSelector(state => state.currentWeather)
+
+    const dispatch = useAppDispatch()
 
     let day = 0
     if (currentData.loading === 'none' && fiveDaysData.loading !== 'idle') {
@@ -20,6 +25,12 @@ const Weathers: FC = () => {
 
     }
 
+    const openDetails = () => {
+        dispatch(fetchFiveDaysWeather(currentData.name!))
+        if (!details) {
+            setOpenDetails(true)
+        }
+    }
     return (
         <>
             <div className={classes.row}>
@@ -52,7 +63,16 @@ const Weathers: FC = () => {
                     })
                 ))
                 }
+
             </div>
+            <div style={{display: 'flex', justifyContent: 'center', marginTop: 30,}}>
+                {!details &&
+                    <button className={classes.btn} onClick={openDetails}
+                            type={'button'}>Прогноз на ближ. дни
+                    </button>
+                }
+            </div>
+
         </>
     );
 };

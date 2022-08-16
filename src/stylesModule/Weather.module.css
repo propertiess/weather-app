@@ -1,12 +1,4 @@
-.block {
-    /*background: rgba(0, 255, 234, 0.37);*/
-    max-width: 300px;
-    min-width: 270px;
-    display: flex;
-    border-radius: 10px;
-    flex-direction: column;
-    align-items: center;
-}
+
 .date {
     font-weight: 500;
 }
@@ -18,13 +10,28 @@
     word-break: normal;
     white-space: normal;
     color: #939cb0;
-    line-height: 14px;
+    text-align: center;
+    line-height: 1.1em;
 }
-.btn {
-    background: transparent;
-    border-radius: 5px;
-    margin-bottom: 13px;
-    cursor: pointer;
-    border: 1px solid #4495d4;
-    color: #4495d4;
+
+.img {
+    width: 100%;
+}
+@media (max-width: 1000px) {
+    .block {
+        min-width: 40px;
+        max-width: 40px;
+    }
+    .date {
+        font-size: 14px;
+        text-align: center;
+    }
+    .tempNow {
+        font-size: 12px;
+        text-align: center;
+    }
+    .condition {
+        display: none;
+        visibility: hidden;
+    }
 }

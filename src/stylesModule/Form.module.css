@@ -41,3 +41,8 @@
 .search:hover {
     opacity: 1;
 }
+@media (max-width: 360px) {
+    .input {
+        min-width: 200px;
+    }
+}
