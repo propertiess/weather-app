@@ -23,8 +23,7 @@ const Form = () => {
     }
 
     const keyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
-
-        if (e.code === 'Enter') {
+        if (e.key === 'Enter') {
             e.preventDefault()
             searchWeather()
 
