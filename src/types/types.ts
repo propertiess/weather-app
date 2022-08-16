@@ -1,12 +1,18 @@
+import {SerializedError} from "@reduxjs/toolkit";
+
 export interface IFiveDaysData {
     city?: ICity
     list?: IList[]
+    loading: string
+    error: SerializedError | null
 }
 export interface ICurrentData {
     weather: IWeather[]
     main?: IMain
     name?: string
     dt?: Date
+    loading: string
+    error: SerializedError | null
 }
 
 export interface ICity {

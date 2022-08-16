@@ -7,11 +7,12 @@ interface IDetailsContext {
 
 export const DetailsContext = createContext<IDetailsContext>({
     details: false,
-    setOpenDetails: () => {}
+    setOpenDetails: () => {},
 })
 
 export const DetailsState = ({children} : {children: React.ReactNode}) => {
     const [openDetails, setOpenDetails] = useState(false)
+    const [day, setDay] = useState(0)
     return (
         <DetailsContext.Provider value={
             {details: openDetails, setOpenDetails}

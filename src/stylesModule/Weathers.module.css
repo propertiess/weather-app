@@ -1,0 +1,9 @@
+.row {
+    padding: 15px 10px;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    margin: 0 10px;
+    background: white;
+    border-radius: 12px;
+}
