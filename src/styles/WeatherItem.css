@@ -13,8 +13,8 @@
 }
 
 .condition_on {
-    display: block;
-    visibility: visible;
+    display: block !important;
+    visibility: visible !important;
 }
 
 .days {
@@ -37,7 +37,9 @@
     text-align: center;
     line-height: 1.1em;
 }
-
+.img_one {
+    width: 30% !important;
+}
 .img {
     width: 30%;
 }

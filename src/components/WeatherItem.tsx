@@ -26,6 +26,7 @@ const WeatherItem: FC<IWeatherProps> = ({date, day, temp, img, city, desc}) => {
 
     let weightWeather = day === 1 && !details ? ' block_weight' : ''
     let visibleCondition = day === 1 && !details ? ' condition_on' : ''
+    let imgOne = day === 1 && !details ? ' img_one' : ''
 
     useEffect(() => {
         let date = new Date()
@@ -46,7 +47,7 @@ const WeatherItem: FC<IWeatherProps> = ({date, day, temp, img, city, desc}) => {
                 {dates?.trim() &&
                     <p className={'date'}>{dates}</p>
                 }
-                <img className={'img'} src={` https://openweathermap.org/img/wn/${img}@2x.png`} alt="213"/>
+                <img className={'img' + imgOne} src={` https://openweathermap.org/img/wn/${img}@2x.png`} alt="213"/>
                 <p className={'tempNow'}>{Math.floor(temp)} &#8451;</p>
                 <p className={'condition' + visibleCondition}>{desc}</p>
 
