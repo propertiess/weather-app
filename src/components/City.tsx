@@ -6,7 +6,7 @@ const City = () => {
     return (
         <div className={classes.city}>
             {currentData.name &&
-                <p>Город: {currentData.name}</p>
+                <p>{currentData.name}</p>
             }
         </div>
     );
