@@ -16,7 +16,7 @@ const Form = () => {
         if (ref.current?.value.trim()) {
             dispatch(resetData())
             setOpenDetails(false)
-            dispatch(fetchCurrentWeather(ref.current.value.trim()))
+            dispatch(fetchCurrentWeather(`https://api.openweathermap.org/data/2.5/weather?q=${ref.current.value.trim()}&units=metric&lang=ru&appid=b4753d97985882ce8169158916a467ec`))
             ref.current.value = ''
         }
 

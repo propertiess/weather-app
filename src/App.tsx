@@ -2,11 +2,10 @@ import React from 'react';
 import './styles/App.css';
 import 'normalize.css/normalize.css'
 import Form from "./components/Form";
-import Weathers from "./components/Weathers";
+import WeatherItems from "./components/WeatherItems";
 import City from "./components/City";
 
 function App() {
-
     return (
         <div className="App">
             <header className={'header'}>
@@ -14,7 +13,7 @@ function App() {
             </header>
             <main>
                 <City/>
-                <Weathers/>
+                <WeatherItems/>
             </main>
         </div>
     );

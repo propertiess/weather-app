@@ -1,11 +1,35 @@
+.block {
+    max-width: 100px;
+    min-width: 150px;
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.block_weight {
+    max-width: 250px !important;
+    min-width: 250px !important;
+}
+
+.condition_on {
+    display: block;
+    visibility: visible;
+}
+
+.days {
+    text-align: center;
+}
 
 .date {
     font-weight: 500;
 }
+
 .tempNow {
     font-weight: 600;
 
 }
+
 .condition {
     word-break: normal;
     white-space: normal;
@@ -15,12 +39,16 @@
 }
 
 .img {
-    width: 100%;
+    width: 30%;
 }
+
 @media (max-width: 1000px) {
     .block {
         min-width: 40px;
         max-width: 40px;
+    }
+    .img {
+        width: 100%;
     }
     .date {
         font-size: 14px;

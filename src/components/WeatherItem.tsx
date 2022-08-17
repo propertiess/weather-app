@@ -1,10 +1,9 @@
 import React, {FC, useContext, useEffect, useState} from 'react';
-import styles from '../stylesModule/Weather.module.css'
 import {useAppDispatch} from "../app/hooks";
-import {fetchFiveDaysWeather} from "../features/FiveDaysWeather";
 import DetailsContext from "../context/DetailsContext";
 import {motion} from "framer-motion";
-import '../styles/Weather.css'
+import '../styles/WeatherItem.css'
+
 interface IWeatherProps {
     date: string | Date
     img: string
@@ -15,8 +14,9 @@ interface IWeatherProps {
 }
 
 const month = ['фев', 'янв', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек']
-const DAY = ['вс', 'пн', 'вт', 'ср','чт', 'пт','сб']
-const Weather: FC<IWeatherProps> = ({date, day,temp, img, city, desc}) => {
+const DAY = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб']
+
+const WeatherItem: FC<IWeatherProps> = ({date, day, temp, img, city, desc}) => {
     const [dates, setDates] = useState<string>()
 
     const {details} = useContext(DetailsContext)
@@ -25,7 +25,8 @@ const Weather: FC<IWeatherProps> = ({date, day,temp, img, city, desc}) => {
     const [days, setDays] = useState<string>('')
 
     let weightWeather = day === 1 && !details ? ' block_weight' : ''
-    let visibleCondition = day === 1 && !details ? ' on' : ''
+    let visibleCondition = day === 1 && !details ? ' condition_on' : ''
+
     useEffect(() => {
         let date = new Date()
         date.setDate(day + date.getDate() - 1)
@@ -43,11 +44,11 @@ const Weather: FC<IWeatherProps> = ({date, day,temp, img, city, desc}) => {
             >
                 <p className={'days'}>{days}</p>
                 {dates?.trim() &&
-                    <p className={styles.date}>{dates}</p>
+                    <p className={'date'}>{dates}</p>
                 }
-                <img className={styles.img} src={` https://openweathermap.org/img/wn/${img}@2x.png`} alt="213"/>
-                <p className={styles.tempNow}>{Math.floor(temp)} &#8451;</p>
-                <p className={styles.condition + visibleCondition}>{desc}</p>
+                <img className={'img'} src={` https://openweathermap.org/img/wn/${img}@2x.png`} alt="213"/>
+                <p className={'tempNow'}>{Math.floor(temp)} &#8451;</p>
+                <p className={'condition' + visibleCondition}>{desc}</p>
 
             </motion.div>
 
@@ -57,4 +58,4 @@ const Weather: FC<IWeatherProps> = ({date, day,temp, img, city, desc}) => {
     );
 };
 
-export default Weather;
+export default WeatherItem;

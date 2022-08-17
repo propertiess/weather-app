@@ -4,8 +4,8 @@ import {ICurrentData} from "../types/types";
 
 
 export const fetchCurrentWeather = createAsyncThunk('fetchCurrWeather',
-    async (city: string) => {
-        const res = await axios.get<ICurrentData>(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=ru&appid=b4753d97985882ce8169158916a467ec`)
+    async (link: string) => {
+        const res = await axios.get<ICurrentData>(link)
         return res.data
     }
 )

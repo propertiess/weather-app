@@ -1,18 +1,21 @@
 import React, {FC, useContext} from 'react';
-import Weather from "./Weather";
+import WeatherItem from "./WeatherItem";
 import {useAppDispatch, useAppSelector} from "../app/hooks";
 import classes from '../stylesModule/Weathers.module.css'
 import Loader from "./Loader";
 import {fetchFiveDaysWeather} from "../features/FiveDaysWeather";
 import DetailsContext from "../context/DetailsContext";
+import AutoCityWeather from "../utils/AutoCityWeather";
 
-const Weathers: FC = () => {
+const WeatherItems: FC = () => {
     const {details, setOpenDetails} = useContext(DetailsContext)
 
     const fiveDaysData = useAppSelector(state => state.fiveDaysWeather)
     const currentData = useAppSelector(state => state.currentWeather)
 
     const dispatch = useAppDispatch()
+
+    AutoCityWeather()
 
     let day = 0
     if (currentData.loading === 'none' && fiveDaysData.loading !== 'idle') {
@@ -26,7 +29,7 @@ const Weathers: FC = () => {
     }
 
     const openDetails = () => {
-        dispatch(fetchFiveDaysWeather(currentData.name!))
+        dispatch(fetchFiveDaysWeather(`https://api.openweathermap.org/data/2.5/forecast?q=${currentData.name}&units=metric&lang=ru&appid=b4753d97985882ce8169158916a467ec`))
         if (!details) {
             setOpenDetails(true)
         }
@@ -35,7 +38,7 @@ const Weathers: FC = () => {
         <>
             <div className={classes.row}>
                 {currentData.weather.map((weather, i) => {
-                    return < Weather
+                    return < WeatherItem
                         desc={weather.description}
                         day={day += 1}
                         key={i}
@@ -50,8 +53,7 @@ const Weathers: FC = () => {
                     list.weather.map(weather => {
 
                         if (list.dt_txt.substring(11, list.dt_txt.length - 3) === '15:00' && day !== 0) {
-                            console.log(list.dt_txt)
-                            return <Weather
+                            return <WeatherItem
                                 desc={weather.description}
                                 day={day += 1}
                                 key={i}
@@ -77,4 +79,4 @@ const Weathers: FC = () => {
     );
 };
 
-export default Weathers;
+export default WeatherItems;
