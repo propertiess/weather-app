@@ -1,5 +1,5 @@
 .wrapper {
-  @apply relative overflow-x-auto h-[15rem];
+  @apply relative overflow-x-auto h-[15rem] mt-7;
 }
 
 .row {
