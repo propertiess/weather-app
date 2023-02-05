@@ -1,11 +1,11 @@
 import { useAppSelector } from '@/store/hooks';
 
-import classes from '../styleModules/City.module.css';
+import styles from './Place.module.css';
 
-export const City = () => {
+export const Place = () => {
   const currentData = useAppSelector(state => state.currentWeather);
   return (
-    <div className={classes.city}>
+    <div className={styles.place}>
       {currentData.name && <p>{currentData.name}</p>}
     </div>
   );

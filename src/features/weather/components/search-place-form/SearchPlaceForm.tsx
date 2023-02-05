@@ -1,13 +1,13 @@
-import React, { useContext, useRef } from 'react';
+import { FormEvent, useContext, useRef } from 'react';
 
 import { DetailsContext } from '@/context/DetailsContext';
 import { useAppDispatch } from '@/store/hooks';
 import { fetchCurrentWeather } from '@/store/reducers/CurrentWeather';
 import { resetData } from '@/store/reducers/FiveDaysWeather';
 
-import styles from '../styleModules/Form.module.css';
+import styles from './SearchPlaceForm.module.css';
 
-export const Form = () => {
+export const SearchPlaceForm = () => {
   const ref = useRef<HTMLInputElement>(null);
   const dispatch = useAppDispatch();
   const { setOpenDetails } = useContext(DetailsContext);
@@ -21,18 +21,16 @@ export const Form = () => {
     }
   };
 
-  const keyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      searchWeather();
-    }
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    searchWeather();
   };
 
   return (
     <div className={styles.formBody}>
-      <form className={styles.form} onKeyDown={keyDown}>
-        <input className={styles.input} ref={ref} placeholder={'Город'} />
-        <button className={styles.btn} onClick={searchWeather} type={'button'}>
+      <form className={styles.form} onSubmit={onSubmit}>
+        <input className={styles.input} ref={ref} placeholder='Город' />
+        <button className={styles.btn} onClick={searchWeather} type='button'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             x='0px'

@@ -1,16 +1,16 @@
 import { useContext } from 'react';
 
+import { Loader } from '@/components';
 import { DetailsContext } from '@/context/DetailsContext';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { fetchFiveDaysWeather } from '@/store/reducers/FiveDaysWeather';
 import { AutoCityWeather } from '@/utils/AutoCityWeather';
 
-import { Loader } from './Loader';
-import { WeatherItem } from './WeatherItem';
+import { WeatherCard } from '../';
 
-import classes from '../styleModules/Weathers.module.css';
+import styles from './WeatherList.module.css';
 
-export const WeatherItems = () => {
+export const WeatherList = () => {
   const { details, setOpenDetails } = useContext(DetailsContext);
   const fiveDaysData = useAppSelector(state => state.fiveDaysWeather);
   const currentData = useAppSelector(state => state.currentWeather);
@@ -45,10 +45,10 @@ export const WeatherItems = () => {
 
   return (
     <>
-      <div className={classes.row}>
-        {currentData.weather.map((weather, i) => {
+      <div className={styles.row}>
+        {currentData.weather.map(weather => {
           return (
-            <WeatherItem
+            <WeatherCard
               desc={weather.description}
               day={(day += 1)}
               key={weather.id}
@@ -59,14 +59,14 @@ export const WeatherItems = () => {
             />
           );
         })}
-        {fiveDaysData.list?.map((list, i) =>
+        {fiveDaysData.list?.map(list =>
           list.weather.map(weather => {
             if (
               list.dt_txt.substring(11, list.dt_txt.length - 3) === '15:00' &&
               day !== 0
             ) {
               return (
-                <WeatherItem
+                <WeatherCard
                   desc={weather.description}
                   day={(day += 1)}
                   key={weather.id}
@@ -82,7 +82,7 @@ export const WeatherItems = () => {
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: 30 }}>
         {!details && (
-          <button className={classes.btn} onClick={openDetails} type={'button'}>
+          <button className={styles.btn} onClick={openDetails} type={'button'}>
             Прогноз на ближ. дни
           </button>
         )}

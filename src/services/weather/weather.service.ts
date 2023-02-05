@@ -1,11 +1,8 @@
-import { ICurrentData, IFiveDaysData } from '../../types/types';
+import { ICurrentData, IFiveDaysData } from '@/types';
 
-import {
-  currentWeatherInstance,
-  fiveDaysWeatherInstance
-} from './weatherInstance';
+import { currentWeatherInstance, fiveDaysWeatherInstance } from './instance';
 
-export const weatherAPI = {
+export const WeatherService = {
   async getCurrentWeatherByPlace(place: string) {
     const { data } = await currentWeatherInstance.get<ICurrentData>('', {
       params: {
@@ -24,6 +21,7 @@ export const weatherAPI = {
     });
     return data;
   },
+
   async getCurrentWeatherByLatLon(lat: number, lon: number) {
     const { data } = await currentWeatherInstance.get<ICurrentData>('', {
       params: {

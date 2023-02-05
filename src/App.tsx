@@ -1,12 +1,11 @@
-import { City } from './components/City';
-import { WeatherItems } from './components/WeatherItems';
-import { Layout } from './layout/Layout';
+import { Place, WeatherList } from '@/features/weather/components';
+import { Layout } from '@/layout';
 
 export const App = () => {
   return (
     <Layout>
-      <City />
-      <WeatherItems />
+      <Place />
+      <WeatherList />
     </Layout>
   );
 };

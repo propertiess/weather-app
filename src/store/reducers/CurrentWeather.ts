@@ -1,14 +1,14 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { weatherAPI } from '../../api/Weather/weatherAPI';
+import { WeatherService } from '../../services/weather/weather.service';
 import { FetchWeather, ICurrentData } from '../../types/types';
 
 export const fetchCurrentWeather = createAsyncThunk(
   'fetchCurrWeather',
   async ({ place, lat, lon }: FetchWeather) => {
     if (place && place.trim())
-      return weatherAPI.getCurrentWeatherByPlace(place);
-    if (lat && lon) return weatherAPI.getCurrentWeatherByLatLon(lat, lon);
+      return WeatherService.getCurrentWeatherByPlace(place);
+    if (lat && lon) return WeatherService.getCurrentWeatherByLatLon(lat, lon);
     throw Error;
   }
 );
