@@ -7,7 +7,7 @@ type Props = PropsWithChildren;
 export const Layout = ({ children }: Props) => {
   return (
     <>
-      <header>
+      <header className='px-2'>
         <SearchPlaceForm />
       </header>
       <main>{children}</main>

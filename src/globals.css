@@ -10,25 +10,19 @@ body,
   margin: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+  @apply text-white;
 }
 
 body {
-  background: #eceef2;
+  @apply bg-main;
 }
 
 #root {
-  min-height: 100vh;
-  min-width: fit-content;
-  display: flex;
-  flex-direction: column;
-}
-
-header {
-  background: white;
+  @apply min-h-screen min-w-fit flex flex-col;
 }
 
 main {
-  flex-grow: 1;
+  @apply flex-grow;
 }
 
 a {

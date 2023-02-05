@@ -1,5 +1,3 @@
 .place {
-  font-size: 25px;
-  display: flex;
-  justify-content: center;
+  @apply block text-center text-2xl my-5;
 }

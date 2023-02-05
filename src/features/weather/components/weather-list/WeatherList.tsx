@@ -1,6 +1,7 @@
 import { useContext } from 'react';
+import clsx from 'clsx';
 
-import { Loader } from '@/components';
+import { Button, Loader } from '@/components';
 import { DetailsContext } from '@/context/DetailsContext';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { fetchFiveDaysWeather } from '@/store/reducers/FiveDaysWeather';
@@ -45,46 +46,46 @@ export const WeatherList = () => {
 
   return (
     <>
-      <div className={styles.row}>
-        {currentData.weather.map(weather => {
-          return (
-            <WeatherCard
-              desc={weather.description}
-              day={(day += 1)}
-              key={weather.id}
-              img={weather.icon}
-              temp={currentData.main!.temp}
-              date={currentData.dt!}
-              city={currentData.name}
-            />
-          );
-        })}
-        {fiveDaysData.list?.map(list =>
-          list.weather.map(weather => {
-            if (
-              list.dt_txt.substring(11, list.dt_txt.length - 3) === '15:00' &&
-              day !== 0
-            ) {
-              return (
-                <WeatherCard
-                  desc={weather.description}
-                  day={(day += 1)}
-                  key={weather.id}
-                  img={weather.icon}
-                  temp={list.main.temp}
-                  date={list.dt_txt!}
-                />
-              );
-            }
-            return null;
-          })
-        )}
+      <div className={clsx(styles.wrapper, !details && 'flex justify-center')}>
+        <div className={styles.row}>
+          {currentData.weather.map(weather => {
+            return (
+              <WeatherCard
+                desc={weather.description}
+                day={(day += 1)}
+                key={weather.id}
+                img={weather.icon}
+                temp={currentData.main!.temp}
+                date={currentData.dt!}
+                city={currentData.name}
+              />
+            );
+          })}
+          {fiveDaysData.list?.map(list =>
+            list.weather.map(weather => {
+              const regexp = new RegExp(/\b15:00\b/, 'g');
+              const isFifteenHours = !!list.dt_txt.match(regexp);
+
+              if (isFifteenHours && day !== 0) {
+                return (
+                  <WeatherCard
+                    desc={weather.description}
+                    day={(day += 1)}
+                    key={weather.id}
+                    img={weather.icon}
+                    temp={list.main.temp}
+                    date={list.dt_txt!}
+                  />
+                );
+              }
+              return null;
+            })
+          )}
+        </div>
       </div>
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: 30 }}>
+      <div className='flex justify-center mt-7'>
         {!details && (
-          <button className={styles.btn} onClick={openDetails} type={'button'}>
-            Прогноз на ближ. дни
-          </button>
+          <Button onClick={openDetails}>Прогноз на ближ. дни</Button>
         )}
       </div>
     </>
