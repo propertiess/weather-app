@@ -11,6 +11,7 @@ export const weatherAPI = {
         q: place
       }
     });
+
     return data;
   },
 
