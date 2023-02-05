@@ -1,4 +1,4 @@
-import React, { createContext, SetStateAction, useState } from "react";
+import React, { createContext, SetStateAction, useState } from 'react';
 
 interface IDetailsContext {
   setOpenDetails: React.Dispatch<SetStateAction<boolean>>;
@@ -7,11 +7,11 @@ interface IDetailsContext {
 
 export const DetailsContext = createContext<IDetailsContext>({
   details: false,
-  setOpenDetails: () => {},
+  setOpenDetails: () => {}
 });
 
 export const DetailsContextProvider = ({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) => {

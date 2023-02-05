@@ -1,11 +1,14 @@
 import React, { FC, useContext } from 'react';
-import WeatherItem from './WeatherItem';
-import { useAppDispatch, useAppSelector } from '../store/hooks';
-import classes from '../styleModules/Weathers.module.css';
-import Loader from './Loader';
-import { fetchFiveDaysWeather } from '../store/reducers/FiveDaysWeather';
+
 import DetailsContext from '../context/DetailsContext';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
+import { fetchFiveDaysWeather } from '../store/reducers/FiveDaysWeather';
 import AutoCityWeather from '../utils/AutoCityWeather';
+
+import Loader from './Loader';
+import WeatherItem from './WeatherItem';
+
+import classes from '../styleModules/Weathers.module.css';
 
 const WeatherItems: FC = () => {
   const { details, setOpenDetails } = useContext(DetailsContext);

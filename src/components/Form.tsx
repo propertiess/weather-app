@@ -1,9 +1,11 @@
 import React, { useContext, useRef } from 'react';
-import { resetData } from '../store/reducers/FiveDaysWeather';
-import { useAppDispatch } from '../store/hooks';
-import styles from '../styleModules/Form.module.css';
-import { fetchCurrentWeather } from '../store/reducers/CurrentWeather';
+
 import DetailsContext from '../context/DetailsContext';
+import { useAppDispatch } from '../store/hooks';
+import { fetchCurrentWeather } from '../store/reducers/CurrentWeather';
+import { resetData } from '../store/reducers/FiveDaysWeather';
+
+import styles from '../styleModules/Form.module.css';
 
 const Form = () => {
   const ref = useRef<HTMLInputElement>(null);

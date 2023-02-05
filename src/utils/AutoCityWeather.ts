@@ -1,9 +1,10 @@
-import { useContext, useEffect } from "react";
-import { usePosition } from "../hooks/usePosition";
-import { useAppDispatch } from "../store/hooks";
-import DetailsContext from "../context/DetailsContext";
-import { fetchCurrentWeather } from "../store/reducers/CurrentWeather";
-import { fetchFiveDaysWeather } from "../store/reducers/FiveDaysWeather";
+import { useContext, useEffect } from 'react';
+
+import DetailsContext from '../context/DetailsContext';
+import { usePosition } from '../hooks/usePosition';
+import { useAppDispatch } from '../store/hooks';
+import { fetchCurrentWeather } from '../store/reducers/CurrentWeather';
+import { fetchFiveDaysWeather } from '../store/reducers/FiveDaysWeather';
 
 const AutoCityWeather = () => {
   const { latitude, longitude, isLoading } = usePosition();

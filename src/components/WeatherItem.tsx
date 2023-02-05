@@ -1,9 +1,11 @@
 import React, { FC, useContext, useEffect, useState } from 'react';
-import DetailsContext from '../context/DetailsContext';
 import { motion } from 'framer-motion';
-import '../styles/WeatherItem.css';
+
+import DetailsContext from '../context/DetailsContext';
 import { DAYS } from '../utils/constants/days';
 import { MONTHS } from '../utils/constants/moths';
+
+import '../styles/WeatherItem.css';
 
 interface IWeatherProps {
   date: string | Date;
@@ -19,12 +21,12 @@ const WeatherItem: FC<IWeatherProps> = ({ date, day, temp, img, desc }) => {
   const { details } = useContext(DetailsContext);
   const [days, setDays] = useState<string>('');
 
-  let weightWeather = day === 1 && !details ? ' block_weight' : '';
-  let visibleCondition = day === 1 && !details ? ' condition_on' : '';
-  let imgOne = day === 1 && !details ? ' img_one' : '';
+  const weightWeather = day === 1 && !details ? ' block_weight' : '';
+  const visibleCondition = day === 1 && !details ? ' condition_on' : '';
+  const imgOne = day === 1 && !details ? ' img_one' : '';
 
   useEffect(() => {
-    let date = new Date();
+    const date = new Date();
     date.setDate(day + date.getDate() - 1);
     setDays(DAYS[date.getDay()]);
     setDates((date.getDate() + ' ' + MONTHS[date.getMonth()]).toString());

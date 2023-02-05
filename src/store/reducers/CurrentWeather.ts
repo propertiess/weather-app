@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { FetchWeather, ICurrentData } from '../../types/types';
+
 import { weatherAPI } from '../../api/Weather/weatherAPI';
+import { FetchWeather, ICurrentData } from '../../types/types';
 
 export const fetchCurrentWeather = createAsyncThunk(
   'fetchCurrWeather',

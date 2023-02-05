@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { useAppSelector } from '../store/hooks';
+
 import classes from '../styleModules/City.module.css';
 
 const City = () => {

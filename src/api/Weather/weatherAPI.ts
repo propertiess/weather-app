@@ -1,8 +1,9 @@
+import { ICurrentData, IFiveDaysData } from '../../types/types';
+
 import {
   currentWeatherInstance,
   fiveDaysWeatherInstance
 } from './weatherInstance';
-import { ICurrentData, IFiveDaysData } from '../../types/types';
 
 export const weatherAPI = {
   async getCurrentWeatherByPlace(place: string) {

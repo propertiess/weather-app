@@ -1,9 +1,11 @@
 import React from 'react';
-import './styles/App.css';
-import 'normalize.css/normalize.css';
+
+import City from './components/City';
 import Form from './components/Form';
 import WeatherItems from './components/WeatherItems';
-import City from './components/City';
+
+import './styles/App.css';
+import 'normalize.css/normalize.css';
 
 function App() {
   return (
