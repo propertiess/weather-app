@@ -8,7 +8,11 @@ export const useGetCurrentDayWeather = (
 ) => {
   return useQuery({
     queryKey: ['current-day'],
-    enabled: !isOpenDetails && !!place.trim(),
-    queryFn: () => WeatherService.getCurrentWeatherByPlace(place)
+    queryFn: () => {
+      if (isOpenDetails || !place.trim()) {
+        return null;
+      }
+      return WeatherService.getCurrentWeatherByPlace(place);
+    }
   });
 };

@@ -16,7 +16,7 @@ export const WeatherContainer = () => {
     errorUpdateCount
   } = useQuery<ICurrentData>({
     queryKey: ['current-day'],
-    enabled: !details,
+    enabled: false,
     refetchOnWindowFocus: false
   });
 

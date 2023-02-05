@@ -8,7 +8,11 @@ export const useGetFiveDaysWeather = (
 ) => {
   return useQuery({
     queryKey: ['five-days'],
-    enabled: isOpenDetails && !!place.trim(),
-    queryFn: () => WeatherService.getFiveDaysWeatherByPlace(place)
+    queryFn: () => {
+      if (!isOpenDetails || !place.trim()) {
+        return null;
+      }
+      return WeatherService.getFiveDaysWeatherByPlace(place);
+    }
   });
 };
