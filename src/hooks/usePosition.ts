@@ -11,14 +11,7 @@ export const usePosition = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const onChange = (pos: coords) => {
-    // Здесь мы могли бы сохранить весь объект position, но для
-    // ясности давайте явно перечислим, какие свойства нас интересуют.
-
     setPosition({ ...pos });
-  };
-
-  const onError = (error: Error) => {
-    setError(error.message);
   };
 
   useEffect(() => {

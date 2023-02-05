@@ -5,7 +5,6 @@ import { Button, Loader } from '@/components';
 import { DetailsContext } from '@/context/DetailsContext';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { fetchFiveDaysWeather } from '@/store/reducers/FiveDaysWeather';
-import { AutoCityWeather } from '@/utils/AutoCityWeather';
 
 import { WeatherCard } from '../';
 
@@ -16,7 +15,6 @@ export const WeatherList = () => {
   const fiveDaysData = useAppSelector(state => state.fiveDaysWeather);
   const currentData = useAppSelector(state => state.currentWeather);
   const dispatch = useAppDispatch();
-  AutoCityWeather();
   let day = 0;
 
   if (currentData.loading === 'none' && fiveDaysData.loading !== 'idle') {
