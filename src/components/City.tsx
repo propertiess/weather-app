@@ -1,10 +1,8 @@
-import React from 'react';
-
-import { useAppSelector } from '../store/hooks';
+import { useAppSelector } from '@/store/hooks';
 
 import classes from '../styleModules/City.module.css';
 
-const City = () => {
+export const City = () => {
   const currentData = useAppSelector(state => state.currentWeather);
   return (
     <div className={classes.city}>
@@ -12,5 +10,3 @@ const City = () => {
     </div>
   );
 };
-
-export default City;

@@ -1,20 +1,20 @@
-import React, { createContext, SetStateAction, useState } from 'react';
+import {
+  createContext,
+  PropsWithChildren,
+  SetStateAction,
+  useState
+} from 'react';
 
 interface IDetailsContext {
   setOpenDetails: React.Dispatch<SetStateAction<boolean>>;
   details: boolean;
 }
 
-export const DetailsContext = createContext<IDetailsContext>({
-  details: false,
-  setOpenDetails: () => {}
-});
+export const DetailsContext = createContext({
+  details: false
+} as IDetailsContext);
 
-export const DetailsContextProvider = ({
-  children
-}: {
-  children: React.ReactNode;
-}) => {
+export const DetailsContextProvider = ({ children }: PropsWithChildren) => {
   const [openDetails, setOpenDetails] = useState(false);
 
   return (
@@ -23,5 +23,3 @@ export const DetailsContextProvider = ({
     </DetailsContext.Provider>
   );
 };
-
-export default DetailsContext;

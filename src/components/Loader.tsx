@@ -1,7 +1,6 @@
-import React from 'react';
-
 import '../styles/Loader.css';
-const Loader = () => {
+
+export const Loader = () => {
   return (
     <>
       <div className='lds-ring'>
@@ -13,5 +12,3 @@ const Loader = () => {
     </>
   );
 };
-
-export default Loader;

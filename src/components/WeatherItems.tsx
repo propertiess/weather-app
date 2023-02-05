@@ -1,16 +1,16 @@
-import React, { FC, useContext } from 'react';
+import { useContext } from 'react';
 
-import DetailsContext from '../context/DetailsContext';
-import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { fetchFiveDaysWeather } from '../store/reducers/FiveDaysWeather';
-import AutoCityWeather from '../utils/AutoCityWeather';
+import { DetailsContext } from '@/context/DetailsContext';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { fetchFiveDaysWeather } from '@/store/reducers/FiveDaysWeather';
+import { AutoCityWeather } from '@/utils/AutoCityWeather';
 
-import Loader from './Loader';
-import WeatherItem from './WeatherItem';
+import { Loader } from './Loader';
+import { WeatherItem } from './WeatherItem';
 
 import classes from '../styleModules/Weathers.module.css';
 
-const WeatherItems: FC = () => {
+export const WeatherItems = () => {
   const { details, setOpenDetails } = useContext(DetailsContext);
   const fiveDaysData = useAppSelector(state => state.fiveDaysWeather);
   const currentData = useAppSelector(state => state.currentWeather);
@@ -90,5 +90,3 @@ const WeatherItems: FC = () => {
     </>
   );
 };
-
-export default WeatherItems;

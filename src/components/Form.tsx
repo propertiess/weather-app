@@ -1,13 +1,13 @@
 import React, { useContext, useRef } from 'react';
 
-import DetailsContext from '../context/DetailsContext';
-import { useAppDispatch } from '../store/hooks';
-import { fetchCurrentWeather } from '../store/reducers/CurrentWeather';
-import { resetData } from '../store/reducers/FiveDaysWeather';
+import { DetailsContext } from '@/context/DetailsContext';
+import { useAppDispatch } from '@/store/hooks';
+import { fetchCurrentWeather } from '@/store/reducers/CurrentWeather';
+import { resetData } from '@/store/reducers/FiveDaysWeather';
 
 import styles from '../styleModules/Form.module.css';
 
-const Form = () => {
+export const Form = () => {
   const ref = useRef<HTMLInputElement>(null);
   const dispatch = useAppDispatch();
   const { setOpenDetails } = useContext(DetailsContext);
@@ -49,5 +49,3 @@ const Form = () => {
     </div>
   );
 };
-
-export default Form;

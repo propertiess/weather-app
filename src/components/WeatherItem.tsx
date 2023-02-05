@@ -1,9 +1,9 @@
 import React, { FC, useContext, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
-import DetailsContext from '../context/DetailsContext';
-import { DAYS } from '../utils/constants/days';
-import { MONTHS } from '../utils/constants/moths';
+import { DetailsContext } from '@/context/DetailsContext';
+import { DAYS } from '@/utils/constants/days';
+import { MONTHS } from '@/utils/constants/moths';
 
 import '../styles/WeatherItem.css';
 
@@ -16,7 +16,7 @@ interface IWeatherProps {
   desc: string;
 }
 
-const WeatherItem: FC<IWeatherProps> = ({ date, day, temp, img, desc }) => {
+export const WeatherItem = ({ date, day, temp, img, desc }: IWeatherProps) => {
   const [dates, setDates] = useState<string>();
   const { details } = useContext(DetailsContext);
   const [days, setDays] = useState<string>('');
@@ -54,5 +54,3 @@ const WeatherItem: FC<IWeatherProps> = ({ date, day, temp, img, desc }) => {
     </>
   );
 };
-
-export default WeatherItem;
