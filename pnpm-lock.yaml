@@ -4,6 +4,7 @@ specifiers:
   '@propertiess/eslint-config': ^1.0.2
   '@propertiess/prettier-config': ^1.0.9
   '@reduxjs/toolkit': ^1.9.2
+  '@tanstack/react-query': ^4.24.4
   '@types/node': ^18.11.19
   '@types/react': ^18.0.27
   '@types/react-dom': ^18.0.10
@@ -23,6 +24,7 @@ specifiers:
 
 dependencies:
   '@reduxjs/toolkit': 1.9.2_k4ae6lp43ej6mezo3ztvx6pykq
+  '@tanstack/react-query': 4.24.4_biqbaboplfbrettd7655fr4n2y
   axios: 0.27.2
   clsx: 1.2.1
   framer-motion: 7.10.3_biqbaboplfbrettd7655fr4n2y
@@ -520,6 +522,28 @@ packages:
       '@swc/core-win32-ia32-msvc': 1.3.32
       '@swc/core-win32-x64-msvc': 1.3.32
     dev: true
+
+  /@tanstack/query-core/4.24.4:
+    resolution: {integrity: sha512-9dqjv9eeB6VHN7lD3cLo16ZAjfjCsdXetSAD5+VyKqLUvcKTL0CklGQRJu+bWzdrS69R6Ea4UZo8obHYZnG6aA==}
+    dev: false
+
+  /@tanstack/react-query/4.24.4_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-RpaS/3T/a3pHuZJbIAzAYRu+1nkp+/enr9hfRXDS/mojwx567UiMksoqW4wUFWlwIvWTXyhot2nbIipTKEg55Q==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      '@tanstack/query-core': 4.24.4
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      use-sync-external-store: 1.2.0_react@18.2.0
+    dev: false
 
   /@types/hoist-non-react-statics/3.3.1:
     resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==}
