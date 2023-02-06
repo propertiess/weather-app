@@ -1,0 +1,24 @@
+.wrapper {
+  @apply py-3 px-6 rounded-lg text-[16px] font-semibold shadow 
+  focus:outline-0 relative border border-transparent cursor-pointer;
+}
+
+.primary {
+  @apply bg-primary
+  focus:shadow focus:shadow-secondary
+  focus:border focus:border-white
+  hover:shadow hover:shadow-primary;
+}
+
+.secondary {
+  @apply bg-secondary
+  focus:shadow focus:shadow-secondary
+  focus:border focus:border-primary
+  hover:shadow hover:shadow-secondary;
+}
+
+.primary,
+.secondary {
+  @apply opacity-90 hover:opacity-100 active:opacity-100;
+  transition: opacity 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}

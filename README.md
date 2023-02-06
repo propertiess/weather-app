@@ -3,7 +3,7 @@
 ## Stack
 
 ```
-React, Typescript, Redux-toolkit, Module CSS
+React, Typescript, React-Query, Module CSS, Tailwind
 ```
 
 ## Installation
@@ -20,4 +20,4 @@ pnpm dev
 
 ## Home page
 
-<img src="./readme/img.png" alt='home page'>
+<img src="./readme/home.png" alt='home page'>

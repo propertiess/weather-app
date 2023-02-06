@@ -1,22 +1,13 @@
-import React from 'react';
-import './styles/App.css';
-import 'normalize.css/normalize.css';
-import Form from './components/Form';
-import WeatherItems from './components/WeatherItems';
-import City from './components/City';
+import { WeatherContainer } from '@/features/weather/components';
+import { DetailsContextProvider } from '@/features/weather/context';
+import { Layout } from '@/layout';
 
-function App() {
+export const App = () => {
   return (
-    <div className='App'>
-      <header className={'header'}>
-        <Form />
-      </header>
-      <main>
-        <City />
-        <WeatherItems />
-      </main>
-    </div>
+    <Layout>
+      <DetailsContextProvider>
+        <WeatherContainer />
+      </DetailsContextProvider>
+    </Layout>
   );
-}
-
-export default App;
+};

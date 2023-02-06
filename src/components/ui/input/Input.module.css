@@ -1,0 +1,12 @@
+.wrapper {
+  @apply bg-main border border-white border-opacity-20 rounded-lg placeholder:text-opacity-80 
+  hover:border-primary focus:outline-0 focus:border-primary
+  focus:border-opacity-40 focus:shadow focus:shadow-primary
+  placeholder:font-semibold;
+  transition: border 0.4s ease, box-shadow 0.4s ease;
+  padding: 0.375rem 0.75rem;
+}
+
+.error {
+  @apply border-red-500 hover:border-red-500 focus:border-red-500 focus:shadow-red-500;
+}
