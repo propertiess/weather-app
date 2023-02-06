@@ -27,28 +27,26 @@ export const WeatherList = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.row}>
-        {fiveDaysWeather?.list?.map(list =>
-          list.weather.map(weather => {
-            const regexp = new RegExp(/\b15:00\b/, 'g');
-            const isFifteenHours = !!list.dt_txt.match(regexp);
+      {fiveDaysWeather?.list?.map(list =>
+        list.weather.map(weather => {
+          const regexp = new RegExp(/\b15:00\b/, 'g');
+          const isFifteenHours = !!list.dt_txt.match(regexp);
 
-            if (isFifteenHours) {
-              return (
-                <WeatherCard
-                  desc={weather.description}
-                  day={(day += 1)}
-                  key={weather.id}
-                  img={weather.icon}
-                  temp={list.main.temp}
-                  date={list.dt_txt!}
-                />
-              );
-            }
-            return null;
-          })
-        )}
-      </div>
+          if (isFifteenHours) {
+            return (
+              <WeatherCard
+                desc={weather.description}
+                day={(day += 1)}
+                key={weather.id}
+                img={weather.icon}
+                temp={list.main.temp}
+                date={list.dt_txt!}
+              />
+            );
+          }
+          return null;
+        })
+      )}
     </div>
   );
 };

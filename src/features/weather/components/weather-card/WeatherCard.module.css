@@ -4,7 +4,7 @@
 }
 
 .date {
-  @apply text-xl uppercase font-medium;
+  @apply text-xl uppercase font-medium flex flex-col;
 }
 
 .img_wrapper {
@@ -16,5 +16,5 @@
 }
 
 .condition {
-  @apply mt-auto;
+  @apply my-auto text-sm;
 }

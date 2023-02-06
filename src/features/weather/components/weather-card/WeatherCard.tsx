@@ -36,7 +36,8 @@ export const WeatherCard = ({ date, day, temp, img, desc }: IWeatherProps) => {
     >
       <div className={styles.desc}>
         <p className={styles.date}>
-          {days}, {dates}
+          <span>{days},</span>
+          <span>{dates}</span>
         </p>
         <p>{Math.floor(temp)} &#8451;</p>
         <p className={styles.condition}>Ощущается {desc}</p>
