@@ -7,9 +7,13 @@ import styles from './WeatherList.module.css';
 export const WeatherList = () => {
   let day = 0;
 
-  const { data: fiveDaysWeather, isLoading, isError } = useGetFiveDaysWeather();
+  const {
+    data: fiveDaysWeather,
+    isFetching,
+    isError
+  } = useGetFiveDaysWeather();
 
-  if (isLoading) {
+  if (isFetching) {
     return (
       <div className='flex justify-center'>
         <Loader />

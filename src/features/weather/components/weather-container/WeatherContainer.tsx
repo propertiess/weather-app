@@ -10,8 +10,8 @@ export const WeatherContainer = () => {
 
   const {
     data: currentDayWeather,
-    isLoading,
-    isError
+    isError,
+    isFetching
   } = useGetCurrentDayWeather();
 
   const openDetails = () => {
@@ -20,7 +20,7 @@ export const WeatherContainer = () => {
     }
   };
 
-  if (isLoading) {
+  if (isFetching) {
     return (
       <div className='flex justify-center'>
         <Loader />
