@@ -34,6 +34,9 @@ export const WeatherContainer = () => {
 
   return (
     <>
+      {currentDayWeather?.name && (
+        <h3 className='text-2xl text-center mt-7'>{currentDayWeather?.name}</h3>
+      )}
       {!details ? (
         <div className='flex flex-col items-center gap-3 justify-center mt-7'>
           {currentDayWeather?.weather.map(weather => {
