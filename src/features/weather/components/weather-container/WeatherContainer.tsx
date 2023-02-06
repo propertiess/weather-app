@@ -48,7 +48,7 @@ export const WeatherContainer = () => {
               />
             );
           })}
-          {!details && currentDayWeather && (
+          {currentDayWeather && (
             <Button onClick={openDetails}>Прогноз на ближ. дни</Button>
           )}
         </div>

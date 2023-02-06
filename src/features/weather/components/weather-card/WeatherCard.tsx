@@ -24,7 +24,7 @@ export const WeatherCard = ({ date, day, temp, img, desc }: IWeatherProps) => {
     const date = new Date();
     date.setDate(day + date.getDate() - 1);
     setDays(DAYS[date.getDay()]);
-    setDates(clsx(MONTHS[date.getMonth()] + ' ' + date.getDate()));
+    setDates(clsx(MONTHS[date.getMonth()], date.getDate()));
   }, [date, day]);
 
   return (
