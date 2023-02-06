@@ -1,15 +1,22 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { WeatherService } from '@/services/weather/weather.service';
+import { ICurrentData } from '@/types';
 
-export const useGetCurrentDayWeather = (
+export const useGetCurrentDayWeather = () => {
+  return useQuery<ICurrentData>({
+    queryKey: ['current-day']
+  });
+};
+
+export const useGetCurrentDayWeatherWithPlace = (
   place: string,
-  isOpenDetails?: boolean
+  detailsIsOpen?: boolean
 ) => {
   return useQuery({
     queryKey: ['current-day'],
     queryFn: () => {
-      if (isOpenDetails || !place.trim()) {
+      if (detailsIsOpen || !place.trim()) {
         return null;
       }
       return WeatherService.getCurrentWeatherByPlace(place);

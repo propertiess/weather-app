@@ -1,15 +1,22 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { WeatherService } from '@/services/weather/weather.service';
+import { IFiveDaysData } from '@/types';
 
-export const useGetFiveDaysWeather = (
+export const useGetFiveDaysWeather = () => {
+  return useQuery<IFiveDaysData>({
+    queryKey: ['five-days']
+  });
+};
+
+export const useGetFiveDaysWeatherWithPlace = (
   place: string,
-  isOpenDetails?: boolean
+  detailsIsOpen?: boolean
 ) => {
   return useQuery({
     queryKey: ['five-days'],
     queryFn: () => {
-      if (!isOpenDetails || !place.trim()) {
+      if (!detailsIsOpen || !place?.trim()) {
         return null;
       }
       return WeatherService.getFiveDaysWeatherByPlace(place);

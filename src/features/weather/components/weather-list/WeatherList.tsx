@@ -1,23 +1,13 @@
-import { useQuery } from '@tanstack/react-query';
-
 import { Loader } from '@/components';
-import { IFiveDaysData } from '@/types';
-
-import { WeatherCard } from '../';
+import { WeatherCard } from '@/features/weather/components';
+import { useGetFiveDaysWeather } from '@/features/weather/hooks';
 
 import styles from './WeatherList.module.css';
 
 export const WeatherList = () => {
   let day = 0;
 
-  const {
-    data: fiveDaysWeather,
-    isLoading,
-    isError
-  } = useQuery<IFiveDaysData>({
-    queryKey: ['five-days'],
-    refetchOnWindowFocus: false
-  });
+  const { data: fiveDaysWeather, isLoading, isError } = useGetFiveDaysWeather();
 
   if (isLoading) {
     return (

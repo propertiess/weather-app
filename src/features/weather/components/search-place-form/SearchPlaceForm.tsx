@@ -1,29 +1,31 @@
 import { FormEvent, useContext, useState } from 'react';
 
-import { Input } from '@/components/ui/input';
+import { Button, Input } from '@/components';
 import { DetailsContext } from '@/context/DetailsContext';
 import {
-  useGetCurrentDayWeather,
-  useGetFiveDaysWeather
+  useGetCurrentDayWeatherWithPlace,
+  useGetFiveDaysWeatherWithPlace
 } from '@/features/weather/hooks';
-import { useDebounce } from '@/hooks';
 
 import styles from './SearchPlaceForm.module.css';
 
 export const SearchPlaceForm = () => {
   const [place, setPlace] = useState('');
   const { details } = useContext(DetailsContext);
-  // const debouncedPlace = useDebounce(place);
 
-  const { refetch: refetchCurrentDay } = useGetCurrentDayWeather(
+  const { refetch: refetchCurrentDay } = useGetCurrentDayWeatherWithPlace(
     place,
     details
   );
 
-  const { refetch: refetchFiveDays } = useGetFiveDaysWeather(place, details);
+  const { refetch: refetchFiveDays } = useGetFiveDaysWeatherWithPlace(
+    place,
+    details
+  );
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     if (details) {
       refetchFiveDays();
     } else {
@@ -40,6 +42,7 @@ export const SearchPlaceForm = () => {
         placeholder='Москва'
         type='search'
       />
+      <Button type='submit'>Узнать</Button>
     </form>
   );
 };

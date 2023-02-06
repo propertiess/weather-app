@@ -1,10 +1,9 @@
 import { useContext } from 'react';
-import { useQuery } from '@tanstack/react-query';
 
 import { Button, Loader } from '@/components';
 import { DetailsContext } from '@/context/DetailsContext';
 import { WeatherCard, WeatherList } from '@/features/weather/components';
-import { ICurrentData } from '@/types';
+import { useGetCurrentDayWeather } from '@/features/weather/hooks';
 
 export const WeatherContainer = () => {
   const { details, setOpenDetails } = useContext(DetailsContext);
@@ -12,13 +11,8 @@ export const WeatherContainer = () => {
   const {
     data: currentDayWeather,
     isLoading,
-    isError,
-    errorUpdateCount
-  } = useQuery<ICurrentData>({
-    queryKey: ['current-day'],
-    enabled: false,
-    refetchOnWindowFocus: false
-  });
+    isError
+  } = useGetCurrentDayWeather();
 
   const openDetails = () => {
     if (!details) {
@@ -34,7 +28,7 @@ export const WeatherContainer = () => {
     );
   }
 
-  if (errorUpdateCount > 1 && isError) {
+  if (isError) {
     return <div className='flex justify-center'>Ошибка!</div>;
   }
 
