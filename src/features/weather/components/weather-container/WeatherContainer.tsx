@@ -29,7 +29,7 @@ export const WeatherContainer = () => {
   }
 
   if (isError) {
-    return <div className='flex justify-center'>Ошибка!</div>;
+    return <div className='flex justify-center mt-7'>Ошибка!</div>;
   }
 
   return (

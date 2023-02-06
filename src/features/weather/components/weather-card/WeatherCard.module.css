@@ -1,5 +1,5 @@
 .card {
-  @apply grid bg-secondary max-w-xs sm:max-w-lg p-4 gap-3;
+  @apply grid bg-secondary w-[20rem] p-4 gap-3;
   grid-template-columns: 1fr 0.5fr;
 }
 
@@ -13,4 +13,8 @@
 
 .desc {
   @apply flex flex-col gap-3;
+}
+
+.condition {
+  @apply mt-auto;
 }

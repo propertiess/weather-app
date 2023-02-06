@@ -11,7 +11,6 @@ interface IWeatherProps {
   date: string | Date;
   img: string;
   temp: number;
-  city?: string;
   day: number;
   desc: string;
 }
@@ -39,12 +38,11 @@ export const WeatherCard = ({ date, day, temp, img, desc }: IWeatherProps) => {
         <p className={styles.date}>
           {days}, {dates}
         </p>
-        <p className={styles.tempNow}>{Math.floor(temp)} &#8451;</p>
+        <p>{Math.floor(temp)} &#8451;</p>
         <p className={styles.condition}>Ощущается {desc}</p>
       </div>
       <div className={styles.img_wrapper}>
         <img
-          className={styles.img}
           src={`https://openweathermap.org/img/wn/${img}@2x.png`}
           alt={desc}
         />
