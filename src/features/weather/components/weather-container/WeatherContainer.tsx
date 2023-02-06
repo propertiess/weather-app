@@ -1,12 +1,10 @@
-import { useContext } from 'react';
-
 import { Button, Loader } from '@/components';
-import { DetailsContext } from '@/context/DetailsContext';
 import { WeatherCard, WeatherList } from '@/features/weather/components';
+import { useDetailsContext } from '@/features/weather/context';
 import { useGetCurrentDayWeather } from '@/features/weather/hooks';
 
 export const WeatherContainer = () => {
-  const { details, setOpenDetails } = useContext(DetailsContext);
+  const { detailsIsOpen, setOpenDetails } = useDetailsContext();
 
   const {
     data: currentDayWeather,
@@ -15,7 +13,7 @@ export const WeatherContainer = () => {
   } = useGetCurrentDayWeather();
 
   const openDetails = () => {
-    if (!details) {
+    if (!detailsIsOpen) {
       setOpenDetails(true);
     }
   };
@@ -37,7 +35,7 @@ export const WeatherContainer = () => {
       {currentDayWeather?.name && (
         <h3 className='text-2xl text-center mt-7'>{currentDayWeather?.name}</h3>
       )}
-      {!details ? (
+      {!detailsIsOpen ? (
         <div className='flex flex-col items-center gap-3 justify-center mt-7'>
           {currentDayWeather?.weather.map(weather => {
             return (
