@@ -20,6 +20,7 @@ export const useGetCurrentDayWeatherWithPlace = (
         return null;
       }
       return WeatherService.getCurrentWeatherByPlace(place);
-    }
+    },
+    refetchInterval: 60 * 1000
   });
 };

@@ -20,6 +20,7 @@ export const useGetFiveDaysWeatherWithPlace = (
         return null;
       }
       return WeatherService.getFiveDaysWeatherByPlace(place);
-    }
+    },
+    refetchInterval: 60 * 1000
   });
 };

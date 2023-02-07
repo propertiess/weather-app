@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useRef, useState } from 'react';
 
 import { Button, Input } from '@/components';
 import { useDetailsContext } from '@/features/home/context';
@@ -11,6 +11,7 @@ import styles from './SearchPlaceForm.module.css';
 
 export const SearchPlaceForm = () => {
   const [place, setPlace] = useState('');
+  const prevPlaceRef = useRef<string>('');
   const { detailsIsOpen } = useDetailsContext();
 
   const { refetch: refetchCurrentDay } = useGetCurrentDayWeatherWithPlace(
@@ -26,11 +27,17 @@ export const SearchPlaceForm = () => {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (place === prevPlaceRef.current) {
+      return;
+    }
+
     if (detailsIsOpen) {
       refetchFiveDays();
     } else {
       refetchCurrentDay();
     }
+
+    prevPlaceRef.current = place;
   };
 
   return (
