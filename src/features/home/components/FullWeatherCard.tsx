@@ -45,10 +45,10 @@ export const FullWeatherCard = () => {
         )}
         <div className='grid w-[20rem] grid-cols-2'>
           {fiveDaysWeather?.list?.map(list => {
-            const date = getFullDate(list.dt).date;
-            const currentDate = new Date().getDate();
+            const currentDate = getFullDate(list.dt).date;
+            const todayDate = new Date().getDate();
 
-            if (date === currentDate) {
+            if (currentDate === todayDate || currentDate - todayDate === 5) {
               return null;
             }
 
