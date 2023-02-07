@@ -7,6 +7,10 @@
   padding: 0.375rem 0.75rem;
 }
 
+.wrapper::placeholder {
+  font-size: inherit;
+}
+
 .error {
   @apply border-red-500 hover:border-red-500 focus:border-red-500 focus:shadow-red-500;
 }

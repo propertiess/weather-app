@@ -36,7 +36,7 @@ export const SearchPlaceForm = () => {
   return (
     <form className={styles.form} onSubmit={onSubmit}>
       <Input
-        className='min-w-[10rem] sm:min-w-[30rem]'
+        className='w-full sm:max-w-[30rem] text-lg'
         value={place}
         onChange={e => setPlace(e.target.value)}
         placeholder='Москва'
