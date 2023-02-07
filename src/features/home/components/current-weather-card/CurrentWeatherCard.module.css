@@ -1,5 +1,5 @@
 .card {
-  @apply grid bg-secondary w-[20rem] p-4 gap-3;
+  @apply grid bg-secondary w-[20rem] p-4 gap-3 shadow-md;
   grid-template-columns: 1fr 0.5fr;
 }
 

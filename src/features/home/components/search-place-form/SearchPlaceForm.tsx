@@ -1,41 +1,25 @@
 import { FormEvent, useRef, useState } from 'react';
 
 import { Button, Input } from '@/components';
-import { useDetailsContext } from '@/features/home/context';
-import {
-  useGetCurrentDayWeatherWithPlace,
-  useGetFiveDaysWeatherWithPlace
-} from '@/features/home/hooks';
+import { useGetFiveDaysWeatherWithPlace } from '@/features/home/hooks';
 
 import styles from './SearchPlaceForm.module.css';
 
 export const SearchPlaceForm = () => {
   const [place, setPlace] = useState('');
   const prevPlaceRef = useRef<string>('');
-  const { detailsIsOpen } = useDetailsContext();
-
-  const { refetch: refetchCurrentDay, isError: isErrorCurrentDay } =
-    useGetCurrentDayWeatherWithPlace(place, detailsIsOpen);
 
   const { refetch: refetchFiveDays, isError: isErrorFiveDays } =
-    useGetFiveDaysWeatherWithPlace(place, detailsIsOpen);
+    useGetFiveDaysWeatherWithPlace(place);
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (
-      place === prevPlaceRef.current &&
-      !isErrorCurrentDay &&
-      !isErrorFiveDays
-    ) {
+    if (place === prevPlaceRef.current && !isErrorFiveDays) {
       return;
     }
 
-    if (detailsIsOpen) {
-      refetchFiveDays();
-    } else {
-      refetchCurrentDay();
-    }
+    refetchFiveDays();
 
     prevPlaceRef.current = place;
   };

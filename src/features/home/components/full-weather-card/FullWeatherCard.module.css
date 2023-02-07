@@ -1,0 +1,7 @@
+.full_card_wrapper {
+  @apply flex flex-col items-center px-2 mt-3;
+}
+
+.small_cards_wrapper {
+  @apply grid grid-cols-2 w-[20rem];
+}

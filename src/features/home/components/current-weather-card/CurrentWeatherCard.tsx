@@ -1,44 +1,34 @@
-import { Loader } from '@/components';
-import { WeatherCard } from '@/features/home/components';
-import { useGetCurrentDayWeather } from '@/features/home/hooks';
+import clsx from 'clsx';
 
-export const CurrentWeatherCard = () => {
-  const {
-    data: currentDayWeather,
-    isError,
-    isFetching
-  } = useGetCurrentDayWeather();
+import { getFullDate, getWeatherImage } from '@/utils';
+import { FULL_DAYS } from '@/utils/consts/days';
+import { MONTHS } from '@/utils/consts/moths';
 
-  if (isFetching) {
-    return (
-      <div className='flex justify-center'>
-        <Loader />
-      </div>
-    );
-  }
+import styles from './CurrentWeatherCard.module.css';
 
-  if (isError) {
-    return <div className='flex justify-center mt-7'>Ошибка!</div>;
-  }
+interface Props {
+  img: string;
+  temp: number;
+  dt: number;
+  desc: string;
+}
+
+export const CurrentWeatherCard = ({ dt, temp, img, desc }: Props) => {
+  const { date, day, month } = getFullDate(dt);
 
   return (
-    <>
-      {currentDayWeather?.name && (
-        <h3 className='text-2xl text-center mt-7'>{currentDayWeather?.name}</h3>
-      )}
-      <div className='flex flex-col items-center gap-3 justify-center mt-7'>
-        {currentDayWeather?.weather.map(weather => {
-          return (
-            <WeatherCard
-              desc={weather.description}
-              day={1}
-              key={weather.id}
-              img={weather.icon}
-              temp={currentDayWeather.main!.temp}
-            />
-          );
-        })}
+    <div className={styles.card}>
+      <div className={styles.desc}>
+        <p className={styles.date}>
+          <span>{FULL_DAYS[day]},</span>
+          <span>{clsx(MONTHS[month], date)}</span>
+        </p>
+        <p>{Math.floor(temp)} &deg;</p>
+        <p className={styles.condition}>{desc}</p>
       </div>
-    </>
+      <div className={styles.img_wrapper}>
+        <img src={getWeatherImage(img)} alt={desc} />
+      </div>
+    </div>
   );
 };
