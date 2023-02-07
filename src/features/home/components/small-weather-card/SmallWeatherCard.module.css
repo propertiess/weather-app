@@ -1,4 +1,0 @@
-.card {
-  @apply grid w-[10rem] border border-secondary border-solid p-2;
-  grid-template-columns: 1fr 0.2fr;
-}

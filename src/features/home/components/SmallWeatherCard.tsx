@@ -1,8 +1,6 @@
 import { getFullDate, getWeatherImage } from '@/utils';
 import { SHORT_DAYS } from '@/utils/consts/days';
 
-import styles from './SmallWeatherCard.module.css';
-
 type Props = {
   img: string;
   temp: number;
@@ -13,7 +11,7 @@ export const SmallWeatherCard = ({ dt, temp, img }: Props) => {
   const day = getFullDate(dt).day;
 
   return (
-    <div className={styles.card}>
+    <div className='grid w-[10rem] grid-cols-[1fr,0.2fr] border border-solid border-secondary p-2'>
       <div className='uppercase'>
         <p className='flex flex-col'>
           <span>{SHORT_DAYS[day]}</span>

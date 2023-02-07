@@ -3,8 +3,6 @@ import { FormEvent, useRef, useState } from 'react';
 import { Button, Input } from '@/components';
 import { useGetFiveDaysWeatherWithPlace } from '@/features/home/hooks';
 
-import styles from './SearchPlaceForm.module.css';
-
 export const SearchPlaceForm = () => {
   const [place, setPlace] = useState('');
   const prevPlaceRef = useRef<string>('');
@@ -25,7 +23,7 @@ export const SearchPlaceForm = () => {
   };
 
   return (
-    <form className={styles.form} onSubmit={onSubmit}>
+    <form className='flex justify-center mt-5 gap-3 px-2' onSubmit={onSubmit}>
       <Input
         className='w-full sm:max-w-[30rem] text-lg'
         value={place}

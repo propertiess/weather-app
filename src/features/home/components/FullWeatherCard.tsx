@@ -6,8 +6,6 @@ import {
 import { useGetFiveDaysWeather } from '@/features/home/hooks';
 import { getFullDate } from '@/utils';
 
-import styles from './FullWeatherCard.module.css';
-
 export const FullWeatherCard = () => {
   const {
     data: fiveDaysWeather,
@@ -35,7 +33,7 @@ export const FullWeatherCard = () => {
           {fiveDaysWeather?.city?.name}
         </h3>
       )}
-      <div className={styles.full_card_wrapper}>
+      <div className='flex flex-col items-center px-2 my-3'>
         {currentDayWeather && (
           <CurrentWeatherCard
             desc={currentDayWeather.weather[0].description}
@@ -45,7 +43,7 @@ export const FullWeatherCard = () => {
             temp={currentDayWeather.main.temp}
           />
         )}
-        <div className={styles.small_cards_wrapper}>
+        <div className='grid grid-cols-2 w-[20rem]'>
           {fiveDaysWeather?.list?.map(list => {
             const date = getFullDate(list.dt).date;
             const currentDate = new Date().getDate();

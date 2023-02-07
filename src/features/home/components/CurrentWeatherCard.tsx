@@ -4,8 +4,6 @@ import { getFullDate, getWeatherImage } from '@/utils';
 import { FULL_DAYS } from '@/utils/consts/days';
 import { MONTHS } from '@/utils/consts/moths';
 
-import styles from './CurrentWeatherCard.module.css';
-
 interface Props {
   img: string;
   temp: number;
@@ -17,16 +15,16 @@ export const CurrentWeatherCard = ({ dt, temp, img, desc }: Props) => {
   const { date, day, month } = getFullDate(dt);
 
   return (
-    <div className={styles.card}>
-      <div className={styles.desc}>
-        <p className={styles.date}>
+    <div className='grid w-[20rem] grid-cols-[1fr,0.5fr] gap-3 bg-secondary p-4 shadow-md'>
+      <div className='flex flex-col gap-3'>
+        <p className='flex flex-col text-xl font-medium uppercase'>
           <span>{FULL_DAYS[day]},</span>
           <span>{clsx(MONTHS[month], date)}</span>
         </p>
         <p>{Math.floor(temp)} &deg;</p>
-        <p className={styles.condition}>{desc}</p>
+        <p className='my-auto text-sm'>{desc}</p>
       </div>
-      <div className={styles.img_wrapper}>
+      <div className='self-center text-end'>
         <img src={getWeatherImage(img)} alt={desc} />
       </div>
     </div>
