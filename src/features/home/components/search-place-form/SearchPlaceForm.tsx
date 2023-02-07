@@ -30,7 +30,7 @@ export const SearchPlaceForm = () => {
         className='w-full sm:max-w-[30rem] text-lg'
         value={place}
         onChange={e => setPlace(e.target.value)}
-        placeholder='Москва'
+        placeholder='Местоположение'
         type='search'
       />
       <Button type='submit'>Узнать</Button>
