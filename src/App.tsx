@@ -1,5 +1,5 @@
-import { WeatherContainer } from '@/features/weather/components';
-import { DetailsContextProvider } from '@/features/weather/context';
+import { WeatherContainer } from '@/features/home/components';
+import { DetailsContextProvider } from '@/features/home/context';
 import { Layout } from '@/layout';
 
 export const App = () => {

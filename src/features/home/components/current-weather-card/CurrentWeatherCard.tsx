@@ -1,6 +1,6 @@
 import { Loader } from '@/components';
-import { WeatherCard } from '@/features/weather/components';
-import { useGetCurrentDayWeather } from '@/features/weather/hooks';
+import { WeatherCard } from '@/features/home/components';
+import { useGetCurrentDayWeather } from '@/features/home/hooks';
 
 export const CurrentWeatherCard = () => {
   const {

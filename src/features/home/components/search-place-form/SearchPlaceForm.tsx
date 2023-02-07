@@ -1,11 +1,11 @@
 import { FormEvent, useState } from 'react';
 
 import { Button, Input } from '@/components';
-import { useDetailsContext } from '@/features/weather/context';
+import { useDetailsContext } from '@/features/home/context';
 import {
   useGetCurrentDayWeatherWithPlace,
   useGetFiveDaysWeatherWithPlace
-} from '@/features/weather/hooks';
+} from '@/features/home/hooks';
 
 import styles from './SearchPlaceForm.module.css';
 

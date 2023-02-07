@@ -3,9 +3,9 @@ import {
   CurrentWeatherCard,
   SearchPlaceForm,
   WeatherList
-} from '@/features/weather/components';
-import { useDetailsContext } from '@/features/weather/context';
-import { useGetCurrentDayWeather } from '@/features/weather/hooks';
+} from '@/features/home/components';
+import { useDetailsContext } from '@/features/home/context';
+import { useGetCurrentDayWeather } from '@/features/home/hooks';
 
 export const WeatherContainer = () => {
   const { detailsIsOpen, setOpenDetails } = useDetailsContext();

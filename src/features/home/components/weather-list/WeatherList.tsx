@@ -1,6 +1,6 @@
 import { Loader } from '@/components';
-import { WeatherCard } from '@/features/weather/components';
-import { useGetFiveDaysWeather } from '@/features/weather/hooks';
+import { WeatherCard } from '@/features/home/components';
+import { useGetFiveDaysWeather } from '@/features/home/hooks';
 
 import styles from './WeatherList.module.css';
 
