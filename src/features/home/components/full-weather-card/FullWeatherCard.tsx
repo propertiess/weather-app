@@ -4,6 +4,7 @@ import {
   SmallWeatherCard
 } from '@/features/home/components';
 import { useGetFiveDaysWeather } from '@/features/home/hooks';
+import { getFullDate } from '@/utils';
 
 import styles from './FullWeatherCard.module.css';
 
@@ -45,8 +46,11 @@ export const FullWeatherCard = () => {
           />
         )}
         <div className={styles.small_cards_wrapper}>
-          {fiveDaysWeather?.list?.map((list, i) => {
-            if (i <= 8) {
+          {fiveDaysWeather?.list?.map(list => {
+            const date = getFullDate(list.dt).date;
+            const currentDate = new Date().getDate();
+
+            if (date === currentDate) {
               return null;
             }
 
