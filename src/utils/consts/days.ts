@@ -1,4 +1,4 @@
-export const DAYS = [
+export const FULL_DAYS = [
   'Воскресенье',
   'Понедельник',
   'Вторник',
@@ -7,3 +7,5 @@ export const DAYS = [
   'Пятница',
   'Суббота'
 ];
+
+export const SHORT_DAYS = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
