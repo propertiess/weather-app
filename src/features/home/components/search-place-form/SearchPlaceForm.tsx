@@ -14,20 +14,20 @@ export const SearchPlaceForm = () => {
   const prevPlaceRef = useRef<string>('');
   const { detailsIsOpen } = useDetailsContext();
 
-  const { refetch: refetchCurrentDay } = useGetCurrentDayWeatherWithPlace(
-    place,
-    detailsIsOpen
-  );
+  const { refetch: refetchCurrentDay, isError: isErrorCurrentDay } =
+    useGetCurrentDayWeatherWithPlace(place, detailsIsOpen);
 
-  const { refetch: refetchFiveDays } = useGetFiveDaysWeatherWithPlace(
-    place,
-    detailsIsOpen
-  );
+  const { refetch: refetchFiveDays, isError: isErrorFiveDays } =
+    useGetFiveDaysWeatherWithPlace(place, detailsIsOpen);
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (place === prevPlaceRef.current) {
+    if (
+      place === prevPlaceRef.current &&
+      !isErrorCurrentDay &&
+      !isErrorFiveDays
+    ) {
       return;
     }
 
