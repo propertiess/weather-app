@@ -24,6 +24,7 @@ export interface ICity {
 export interface IList {
   weather: IWeather[];
   dt_txt: string;
+  dt: number;
   main: IMain;
 }
 

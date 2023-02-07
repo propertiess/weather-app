@@ -35,7 +35,6 @@ export const CurrentWeatherCard = () => {
               key={weather.id}
               img={weather.icon}
               temp={currentDayWeather.main!.temp}
-              date={currentDayWeather.dt!}
             />
           );
         })}

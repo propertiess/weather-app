@@ -8,15 +8,14 @@ import { MONTHS } from '@/utils/consts/moths';
 import styles from './WeatherCard.module.css';
 
 interface IWeatherProps {
-  date: string | Date;
   img: string;
   temp: number;
   day: number;
   desc: string;
 }
 
-export const WeatherCard = ({ date, day, temp, img, desc }: IWeatherProps) => {
-  const [dates, setDates] = useState<string>();
+export const WeatherCard = ({ day, temp, img, desc }: IWeatherProps) => {
+  const [dates, setDates] = useState<string>('');
   const [days, setDays] = useState<string>('');
 
   useEffect(() => {
@@ -24,7 +23,7 @@ export const WeatherCard = ({ date, day, temp, img, desc }: IWeatherProps) => {
     date.setDate(day + date.getDate() - 1);
     setDays(DAYS[date.getDay()]);
     setDates(clsx(MONTHS[date.getMonth()], date.getDate()));
-  }, [date, day]);
+  }, [day]);
 
   return (
     <motion.div
@@ -39,8 +38,8 @@ export const WeatherCard = ({ date, day, temp, img, desc }: IWeatherProps) => {
           <span>{days},</span>
           <span>{dates}</span>
         </p>
-        <p>{Math.floor(temp)} &#8451;</p>
-        <p className={styles.condition}>Ощущается {desc}</p>
+        <p>{Math.floor(temp)} &deg;</p>
+        <p className={styles.condition}>{desc}</p>
       </div>
       <div className={styles.img_wrapper}>
         <img
