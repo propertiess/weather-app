@@ -1,5 +1,5 @@
 .full_card_wrapper {
-  @apply flex flex-col items-center px-2 mt-3;
+  @apply flex flex-col items-center px-2 my-3;
 }
 
 .small_cards_wrapper {
