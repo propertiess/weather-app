@@ -6,10 +6,10 @@ export const Layout = ({ children }: Props) => {
   return (
     <>
       <header className='p-2'>
-        <h1 className='text-4xl text-center'>Weather</h1>
+        <h1 className='text-center text-4xl'>Weather</h1>
       </header>
       <main>{children}</main>
-      <footer className='p-2 bg-secondary'>
+      <footer className='bg-secondary p-2'>
         <p className='text-center'>&copy; 2022</p>
       </footer>
     </>

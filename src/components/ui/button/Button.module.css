@@ -1,20 +1,20 @@
 .wrapper {
-  @apply py-3 px-6 rounded-lg text-[16px] font-semibold shadow 
-  focus:outline-0 relative border border-transparent cursor-pointer;
+  @apply relative cursor-pointer rounded-lg border border-transparent py-3 
+  px-6 text-[16px] font-semibold shadow focus:outline-0;
 }
 
 .primary {
   @apply bg-primary
-  focus:shadow focus:shadow-secondary
+  hover:shadow hover:shadow-primary
   focus:border focus:border-white
-  hover:shadow hover:shadow-primary;
+  focus:shadow focus:shadow-secondary;
 }
 
 .secondary {
   @apply bg-secondary
-  focus:shadow focus:shadow-secondary
+  hover:shadow hover:shadow-secondary
   focus:border focus:border-primary
-  hover:shadow hover:shadow-secondary;
+  focus:shadow focus:shadow-secondary;
 }
 
 .primary,

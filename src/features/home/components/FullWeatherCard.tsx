@@ -22,18 +22,18 @@ export const FullWeatherCard = () => {
   }
 
   if (isError) {
-    return <div className='flex justify-center mt-7'>Ошибка!</div>;
+    return <div className='mt-7 flex justify-center'>Ошибка!</div>;
   }
   const currentDayWeather = fiveDaysWeather?.list?.[0];
 
   return (
     <>
       {fiveDaysWeather?.city?.name && (
-        <h3 className='text-2xl text-center mt-7'>
+        <h3 className='mt-7 text-center text-2xl'>
           {fiveDaysWeather?.city?.name}
         </h3>
       )}
-      <div className='flex flex-col items-center px-2 my-3'>
+      <div className='my-3 flex flex-col items-center px-2'>
         {currentDayWeather && (
           <CurrentWeatherCard
             desc={currentDayWeather.weather[0].description}
@@ -43,7 +43,7 @@ export const FullWeatherCard = () => {
             temp={currentDayWeather.main.temp}
           />
         )}
-        <div className='grid grid-cols-2 w-[20rem]'>
+        <div className='grid w-[20rem] grid-cols-2'>
           {fiveDaysWeather?.list?.map(list => {
             const date = getFullDate(list.dt).date;
             const currentDate = new Date().getDate();

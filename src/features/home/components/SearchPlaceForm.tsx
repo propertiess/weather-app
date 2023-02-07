@@ -23,9 +23,9 @@ export const SearchPlaceForm = () => {
   };
 
   return (
-    <form className='flex justify-center mt-5 gap-3 px-2' onSubmit={onSubmit}>
+    <form className='mt-5 flex justify-center gap-3 px-2' onSubmit={onSubmit}>
       <Input
-        className='w-full sm:max-w-[30rem] text-lg'
+        className='w-full text-lg sm:max-w-[30rem]'
         value={place}
         onChange={e => setPlace(e.target.value)}
         placeholder='Местоположение'
