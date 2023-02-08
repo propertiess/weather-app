@@ -1,14 +1,14 @@
 import { FormEvent, useRef, useState } from 'react';
 
 import { Button, Input } from '@/components';
-import { useGetFiveDaysWeatherWithPlace } from '@/features/home/hooks';
+import { useGetFiveDaysWeather } from '@/features/home/hooks';
 
 export const SearchPlaceForm = () => {
   const [place, setPlace] = useState('');
   const prevPlaceRef = useRef<string>('');
 
   const { refetch: refetchFiveDays, isError: isErrorFiveDays } =
-    useGetFiveDaysWeatherWithPlace(place);
+    useGetFiveDaysWeather(place);
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
